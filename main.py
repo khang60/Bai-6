@@ -1,11 +1,26 @@
 #khai bao thu vien st
 import streamlit as st
-import time
-st.title('my progress')
+st.title('Điền thông tin giới thiệu bản thân')
 my_bar = st.progress(0)
-for percent_complete in range(100):
-  time.sleep(0.05)
-  my_bar.progress(percent_complete + 1)
+quiz = ['Họ và tên:', 
+       'Ngày tháng năm sinh:',
+       'Sở thích:']
+answers = []
+len_quiz = len(quiz)
 
-if st.button("Click me"):
-  st.balloons()
+for i in range(len_quiz):
+  answer = st.text_input(quiz[i], '')
+  if answer != '':
+    answers.append(answer)
+
+if st.button('Confirm'):
+  if len(answers) == len_quiz:
+    my_bar.progress(100)
+    st.write('Bạn đã hoàn thành đầy đủ thông tin!')
+    st.balloons()
+  else:
+    my_bar.progress(len(answers)/len_quiz)
+    st.write('Bạn chưa hoàn thành đầy đủ thông tin!')
+
+  for i in range(len(answers)):
+    st.write(quiz[i], answers[i])
