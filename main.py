@@ -4,7 +4,12 @@ st.title('Điền thông tin giới thiệu bản thân')
 my_bar = st.progress(0)
 quiz = ['Họ và tên:', 
        'Ngày tháng năm sinh:',
-       'Sở thích:']
+       'Sở thích:',
+       'Tài khoản',
+       'Mật khẩu',
+       'Nhập lại mật khảu',
+       'Tên người dùng',
+       'Email']
 answers = []
 len_quiz = len(quiz)
 
